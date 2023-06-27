@@ -30,6 +30,29 @@ fn reference_demo() {
     println!("{} at {:p}", x, &x)
 }
 
+impl Fruit {
+
+    fn print_fruit(&self) {
+        println!("{} bananas {} apples", self.bananas, self.apples);
+    }
+
+    fn increase_fruit(&mut self) {
+        self.bananas += 5;
+        self.apples += 10;
+    }
+
+    fn price(&self) -> i32 {
+        self.bananas * 10 + self.apples * 20
+    }
+}
+
+fn new_fruit_for_methods() -> Fruit {
+    Fruit {
+        apples: 100, 
+        bananas: 50,
+    }
+}
+
 fn main() {
     println!("Hello, world!");
     let mut fruit : Fruit = Fruit {
@@ -41,4 +64,11 @@ fn main() {
     print_fruit(&fruit);
     reference_demo();
     deref_demo();
+    let mut fruit : Fruit = new_fruit_for_methods();
+    fruit.print_fruit();
+    println!("price of fruit is {}", fruit.price());
+    fruit.increase_fruit();
+    fruit.print_fruit();
+    println!("price of fruit is {}", fruit.price());
+
 }
