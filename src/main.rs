@@ -45,8 +45,8 @@ impl Fruit {
         self.bananas * 10 + self.apples * 20
     }
 
-    fn new(apples : i32, bananas : i32) -> Fruit {
-        Fruit {
+    fn new(apples : i32, bananas : i32) -> Self {
+        Self {
             apples: apples, 
             bananas: bananas,
         }
