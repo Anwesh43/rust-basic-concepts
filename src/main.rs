@@ -44,6 +44,13 @@ impl Fruit {
     fn price(&self) -> i32 {
         self.bananas * 10 + self.apples * 20
     }
+
+    fn new(apples : i32, bananas : i32) -> Fruit {
+        Fruit {
+            apples: apples, 
+            bananas: bananas,
+        }
+    }
 }
 
 fn new_fruit_for_methods() -> Fruit {
@@ -70,5 +77,8 @@ fn main() {
     fruit.increase_fruit();
     fruit.print_fruit();
     println!("price of fruit is {}", fruit.price());
+
+    let new_fruit : Fruit = Fruit::new(126, 213);
+    new_fruit.print_fruit();
 
 }
