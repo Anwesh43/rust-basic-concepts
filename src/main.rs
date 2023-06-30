@@ -81,4 +81,8 @@ fn main() {
     let new_fruit : Fruit = Fruit::new(126, 213);
     new_fruit.print_fruit();
 
+    let first_name : String = "hello".to_owned();
+    let last_name : &str = " world";
+    let full_name = first_name + last_name ;
+    println!("{}", full_name);
 }
