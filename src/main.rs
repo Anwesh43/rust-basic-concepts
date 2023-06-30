@@ -60,6 +60,10 @@ fn new_fruit_for_methods() -> Fruit {
     }
 }
 
+fn greet(text : String) {
+    println!("{}", text)
+}
+
 fn main() {
     println!("Hello, world!");
     let mut fruit : Fruit = Fruit {
@@ -84,5 +88,8 @@ fn main() {
     let first_name : String = "hello".to_owned();
     let last_name : &str = " world";
     let full_name = first_name + last_name ;
-    println!("{}", full_name);
+    //println!("{}", full_name);
+    greet(full_name.clone());
+    greet(full_name);
+
 }
