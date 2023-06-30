@@ -91,5 +91,7 @@ fn main() {
     //println!("{}", full_name);
     greet(full_name.clone());
     greet(full_name);
+    let message : String = format!("Hello my name is {} and I am {} years old", "Anwesh", 31);
+    println!("{}", message);
 
 }
