@@ -124,5 +124,11 @@ fn main() {
 
     println!("sum of new_num {}", print_sum(new_num));
 
+    let mut nums_vector : Vec<i32> = vec![1, 4, 2, 3, 11, 6];
+
+    nums_vector.push(10);
+
+    println!("{:?}", nums_vector);
+
 
 }
