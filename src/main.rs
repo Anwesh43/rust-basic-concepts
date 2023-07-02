@@ -120,4 +120,9 @@ fn main() {
 
     println!("sum of numbers is {}", print_sum(&numbers));
 
+    let new_num : &[i32] = &[5, 2, 1, 8, 9];
+
+    println!("sum of new_num {}", print_sum(new_num));
+
+
 }
