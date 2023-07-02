@@ -130,5 +130,11 @@ fn main() {
 
     println!("{:?}", nums_vector);
 
+    println!("Slices demo 1 {:?}", &numbers[1..5]);
 
+    println!("Slices demo 2 {:?}", &numbers[1..]);
+
+    println!("Slices demo 3 {:?}", &numbers[..3]);
+
+    println!("Slices demo 4 {:?}", &numbers[..]);
 }
