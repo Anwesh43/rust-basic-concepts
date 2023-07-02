@@ -64,6 +64,17 @@ fn greet(text : String) {
     println!("{}", text)
 }
 
+fn print_sum(numbers : &[i32]) -> i32 {
+    let mut i = 0;
+    let n = numbers.len();
+    let mut sum = 0;
+    while i < n {
+        sum += numbers[i];
+        i += 1;
+    }
+    return sum
+}
+
 fn main() {
     println!("Hello, world!");
     let mut fruit : Fruit = Fruit {
@@ -93,5 +104,20 @@ fn main() {
     greet(full_name);
     let message : String = format!("Hello my name is {} and I am {} years old", "Anwesh", 31);
     println!("{}", message);
+
+    let numbers : [i32; 5] = [1, 2, 3, 4, 5];
+
+    println!("{:?}", numbers);
+
+    let mut num_index = 0;
+
+    let numbers_length = numbers.len();
+
+    while num_index < numbers_length {
+        println!("number at {} is {}", num_index, numbers[num_index]);
+        num_index += 1;
+    }
+
+    println!("sum of numbers is {}", print_sum(&numbers));
 
 }
