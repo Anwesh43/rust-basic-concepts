@@ -3,6 +3,12 @@ struct Fruit {
     bananas : i32, 
 }
 
+struct Vegetable<T> {
+    onions : T,
+    potatoes: T
+}
+
+
 fn print_fruit(fruit : &Fruit) {
     println!("number of apples {}, number of bananas {}", fruit.apples, fruit.bananas)
 }
@@ -137,4 +143,11 @@ fn main() {
     println!("Slices demo 3 {:?}", &numbers[..3]);
 
     println!("Slices demo 4 {:?}", &numbers[..]);
+
+    let veg : Vegetable<i32> = Vegetable {
+        potatoes: 10, 
+        onions: 10,
+    };
+    println!("{} {}", veg.potatoes, veg.onions);
+
 }
