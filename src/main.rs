@@ -1,6 +1,6 @@
 struct Fruit {
     apples : i32,
-    bananas : i32, 
+    bananas : i32,
 }
 
 struct Vegetable<T> {
@@ -8,6 +8,23 @@ struct Vegetable<T> {
     potatoes: T
 }
 
+fn print_vegetable<T: std::fmt::Display>(veg: &Vegetable<T>) {
+    println!("potatoes: {}, bananas: {}", veg.potatoes, veg.onions);
+}
+
+impl<T: std::fmt::Display> Vegetable<T> {
+
+    fn print(&self) {
+        println!("I have {} potatoes and {} onions", self.potatoes, self.onions);
+    }
+
+    fn new(a : T, b : T) -> Self {
+        Self {
+            onions: a, 
+            potatoes: b, 
+        }
+    }
+}
 
 fn print_fruit(fruit : &Fruit) {
     println!("number of apples {}, number of bananas {}", fruit.apples, fruit.bananas)
@@ -148,6 +165,10 @@ fn main() {
         potatoes: 10, 
         onions: 10,
     };
-    println!("{} {}", veg.potatoes, veg.onions);
+    //println!("{} {}", veg.potatoes, veg.onions);
+    print_vegetable(&veg);
+    veg.print();
 
+    let veg1 : Vegetable<String> = Vegetable::<String>::new("100".to_owned(), "1000".to_owned());
+    veg1.print();
 }
