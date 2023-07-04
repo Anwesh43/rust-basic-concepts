@@ -121,6 +121,15 @@ fn quadruple<T : Double>(x : T) -> T {
     x.double().double()
 }
 
+impl<T: Double> Double for Vegetable<T> {
+    fn double(&self) -> Self {
+        Vegetable {
+            onions: self.onions.double(),
+            potatoes: self.potatoes.double(),
+        }
+    }
+} 
+
 fn main() {
     println!("Hello, world!");
     let mut fruit : Fruit = Fruit {
@@ -202,4 +211,6 @@ fn main() {
     println!("{}", "hello".to_string().double());
 
     println!("quadruple of 100 is {} quadruple of hello is {}", quadruple(100), quadruple("Hello".to_owned()));
+
+    veg.double().print();
 }
