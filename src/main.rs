@@ -171,4 +171,7 @@ fn main() {
 
     let veg1 : Vegetable<String> = Vegetable::<String>::new("100".to_owned(), "1000".to_owned());
     veg1.print();
+
+    let size = std::mem::size_of::<Vegetable<String>>();
+    println!("size is {}", size);
 }
