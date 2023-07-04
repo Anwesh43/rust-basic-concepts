@@ -117,6 +117,10 @@ fn print_sum(numbers : &[i32]) -> i32 {
     return sum
 }
 
+fn quadruple<T : Double>(x : T) -> T {
+    x.double().double()
+}
+
 fn main() {
     println!("Hello, world!");
     let mut fruit : Fruit = Fruit {
@@ -196,4 +200,6 @@ fn main() {
 
     println!("double of 20 is {}", 20_i32.double());
     println!("{}", "hello".to_string().double());
+
+    println!("quadruple of 100 is {} quadruple of hello is {}", quadruple(100), quadruple("Hello".to_owned()));
 }
