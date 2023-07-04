@@ -8,6 +8,25 @@ struct Vegetable<T> {
     potatoes: T
 }
 
+trait Double {
+
+    fn double(&self) -> Self;
+
+}
+
+impl Double for i32 {
+    fn double(&self) -> Self {
+        self * 2
+    }
+}
+
+impl Double for String {
+
+    fn double(&self) -> Self {
+        format!("{} {}", self, self)
+    }
+}
+
 fn print_vegetable<T: std::fmt::Display>(veg: &Vegetable<T>) {
     println!("potatoes: {}, bananas: {}", veg.potatoes, veg.onions);
 }
@@ -174,4 +193,7 @@ fn main() {
 
     let size = std::mem::size_of::<Vegetable<String>>();
     println!("size is {}", size);
+
+    println!("double of 20 is {}", 20_i32.double());
+    println!("{}", "hello".to_string().double());
 }
