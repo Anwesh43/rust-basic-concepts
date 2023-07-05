@@ -1,3 +1,4 @@
+#[derive(Clone, Copy)]
 struct Fruit {
     apples : i32,
     bananas : i32,
@@ -130,6 +131,16 @@ impl<T: Double> Double for Vegetable<T> {
     }
 } 
 
+fn print_fruit_1(fruit : Fruit) {
+    println!("printing fruit once");
+    fruit.print_fruit();
+}
+
+fn print_fruit_2(fruit : Fruit) {
+    println!("printing fruit again");
+    fruit.print_fruit();
+}
+
 fn main() {
     println!("Hello, world!");
     let mut fruit : Fruit = Fruit {
@@ -213,4 +224,9 @@ fn main() {
     println!("quadruple of 100 is {} quadruple of hello is {}", quadruple(100), quadruple("Hello".to_owned()));
 
     veg.double().print();
+
+    println!("Cloning fruit");
+    fruit.clone().print_fruit();
+    print_fruit_1(fruit);
+    print_fruit_2(fruit);
 }
