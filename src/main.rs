@@ -1,4 +1,4 @@
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 struct Fruit {
     apples : i32,
     bananas : i32,
@@ -229,4 +229,5 @@ fn main() {
     fruit.clone().print_fruit();
     print_fruit_1(fruit);
     print_fruit_2(fruit);
+    println!("{:?}", fruit);
 }
