@@ -1,3 +1,5 @@
+use std::ops::Add;
+
 #[derive(Clone, Copy, Debug)]
 struct Fruit {
     apples : i32,
@@ -230,4 +232,6 @@ fn main() {
     print_fruit_1(fruit);
     print_fruit_2(fruit);
     println!("{:?}", fruit);
+
+    println!("using std ops {}", 2_i32.add(5));
 }
