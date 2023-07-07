@@ -11,6 +11,55 @@ struct Vegetable<T> {
     potatoes: T
 }
 
+#[derive(Clone, Copy, Debug)]
+struct Kmh {
+    value : u32,
+}
+
+#[derive(Clone, Copy, Debug)]
+struct Km {
+    value : u32, 
+}
+
+#[derive(Clone, Copy, Debug)]
+struct Mph {
+    value : u32,
+}
+
+#[derive(Clone, Copy, Debug)]
+struct Miles {
+    value : u32,
+}
+
+trait DistanceCalculator {
+    type Distance;
+
+    fn in_n_hours(&self, n : u32) -> Self::Distance;
+
+}
+
+impl DistanceCalculator for Kmh {
+    
+    type Distance = Km;
+    
+    fn in_n_hours(&self, n : u32) -> Km {
+        Km {
+            value : self.value * n,
+        }
+    }
+}
+
+impl DistanceCalculator for Mph {
+
+    type Distance = Miles;
+
+    fn in_n_hours(&self, n : u32) -> Miles {
+        Miles {
+            value : self.value * n 
+        }
+    }
+}
+
 trait Double {
 
     fn double(&self) -> Self;
@@ -234,4 +283,19 @@ fn main() {
     println!("{:?}", fruit);
 
     println!("using std ops {}", 2_i32.add(5));
+
+    let kmh = Kmh {
+        value : 100,
+    };
+
+    let mph = Mph {
+        value : 20
+    };
+
+    let km = kmh.in_n_hours(5);
+
+    let mp = mph.in_n_hours(8);
+
+    println!("at speed {:?}  we can go for {:?}", kmh, km);
+    println!("at speed {:?}  we can go for {:?}", mph, mp);
 }
